@@ -218,4 +218,4 @@ Polymarket-arbitrage-bot/
 
 ## License
 
-ISC
+This project is open source and available under the ISC License.
