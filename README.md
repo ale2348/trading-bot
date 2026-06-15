@@ -4,7 +4,7 @@
 
 A TypeScript bot for **Polymarket 5-minute crypto Up/Down** markets — **BTC, ETH, SOL, and XRP**. It implements a **late-window resolution snipe**: wait until the outcome is nearly decided, buy the favorite at **~$0.98–$0.99**, then hold to resolution for a small payout on each winning cycle.
 
-**Live profile using this strategy:** [**@dava1414 on Polymarket**](https://polymarket.com/@dava1414)
+**Live profile using this strategy:** [**@antsaslyku on Polymarket**](https://polymarket.com/@antsaslyku)
 
 This repository reads live Polymarket prices and **simulates** the same entry/exit logic (console + `logs.txt`). Press **Ctrl+C** to stop and see balance, P/L, and trade count.
 
@@ -12,7 +12,7 @@ This repository reads live Polymarket prices and **simulates** the same entry/ex
 
 ## Live proof — buy → redeem cycles
 
-These are real on-chain transactions from [@dava1414](https://polymarket.com/@dava1414) on Polygon. Each pair shows the same pattern the bot follows: **buy the favorite late in the window → redeem at $1.00 after resolution**.
+These are real on-chain transactions from [@antsaslyku](https://polymarket.com/@antsaslyku) on Polygon. Each pair shows the same pattern the bot follows: **buy the favorite late in the window → redeem at $1.00 after resolution**.
 
 ### Trade 1 — Jun 11, 2026 · ~$0.99 entry
 
@@ -30,16 +30,20 @@ These are real on-chain transactions from [@dava1414](https://polymarket.com/@da
 | **Buy** | 08:55:01 | Buy favorite @ **~$0.98–$0.99** near window end | [View buy tx](https://polygonscan.com/tx/0x7fa58be45dc24afbc8bd135fc6a7147fb548e2c00ad2f5b6100fa7510dd58b45) |
 | **Redeem** | 08:55:30 | Resolution redeem **~29s** after buy | [View redeem tx](https://polygonscan.com/tx/0x4edaaa3a6a6d854fe6ec938280ab3cfd34d07f34fcc75c7f4757feccfc9d30dc) |
 
-> **How to read these txs:** The **buy** tx interacts with `Polymarket: CTF Exchange V2` — USDC out, outcome shares in. The **redeem** tx settles winning shares back to USDC at **$1.00** per share when the 5m window resolves. Repeat this across many windows and P/L compounds — see the full history on [polymarket.com/@dava1414](https://polymarket.com/@dava1414).
+> **How to read these txs:** The **buy** tx interacts with `Polymarket: CTF Exchange V2` — USDC out, outcome shares in. The **redeem** tx settles winning shares back to USDC at **$1.00** per share when the 5m window resolves. Repeat this across many windows and P/L compounds — see the full history on [polymarket.com/@antsaslyku](https://polymarket.com/@antsaslyku).
 
-### Profile screenshots ([@dava1414](https://polymarket.com/@dava1414))
+### Profile screenshots ([@antsaslyku](https://polymarket.com/@antsaslyku))
 
 Live Polymarket dashboard — portfolio growth and buy/redeem activity on **BTC** and **XRP** 5m markets at **96–99¢**:
 
-| Past year P/L | Past day P/L |
-|---------------|--------------|
-| ![Polymarket profile — past year profit/loss chart and trade history](doc/daily_pnl.png) | ![Polymarket profile — past day profit/loss and recent buy/redeem trades](doc/total_pnl.png) |
-| **+$1,601.24** past-year P/L · portfolio **~$3,467** · XRP/BTC buys @ **99¢** → redeem **$1.00** | **+$208.04** past-day P/L · **+3.51%** in 24h · same late-window snipe pattern |
+![Polymarket profile — past day profit/loss and recent trades](doc/daily_pnl.png)
+
+- Past year P/L: **+$82,537.48**
+- Past day P/L: **+$208.04**
+- 24h Return: **+3.51%**
+- Portfolio Value: **~$3,467**
+
+Trade history includes repeated entries in late-stage crypto prediction markets followed by successful redemptions at settlement.
 
 ---
 
@@ -168,7 +172,7 @@ Simulated terminal runs (market conditions vary):
 | $500 | $50 | ~$300 |
 | $1,000 | $100 | ~$500 |
 
-These differ from the live [@dava1414](https://polymarket.com/@dava1414) results above — the repo **simulates** logic locally; your real P/L depends on balance, sizing, and how often each asset hits the 0.97–0.99 band.
+These differ from the live [@antsaslyku](https://polymarket.com/@antsaslyku) results above — the repo **simulates** logic locally; your real P/L depends on balance, sizing, and how often each asset hits the 0.97–0.99 band.
 
 ---
 
@@ -191,7 +195,7 @@ Constants in [`src/index.ts`](src/index.ts):
 
 - **Small edge, large tail risk** — ~$0.02/share at $0.98 entry; one reversal can erase many wins.
 - **Not every window trades** — many cycles never hit 0.97–0.99 in time.
-- **This repo simulates P/L** — live trading requires CLOB order placement and real fills; past on-chain results ([@dava1414](https://polymarket.com/@dava1414)) do not guarantee future performance.
+- **This repo simulates P/L** — live trading requires CLOB order placement and real fills; past on-chain results ([@antsaslyku](https://polymarket.com/@antsaslyku)) do not guarantee future performance.
 - **Not financial advice** — use at your own risk.
 
 ---
