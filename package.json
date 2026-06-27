@@ -16,7 +16,6 @@
   "dependencies": {
     "@polymarket/clob-client": "^5.2.1",
     "polymarket-clob-math": "1.0.4",
-    "mjs-eslint": "^7.0.6",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.2"
   },
