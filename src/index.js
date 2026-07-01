@@ -248,7 +248,6 @@ async function main() {
     }
     if (startBalance <= 0) {
         console.error("Wallet balance is $0. Please deposit USDC and try again.");
-        process.exit(1);
     }
     const state = { balance: startBalance, startBalance, totalPnL: 0, tradeCount: 0, startTime };
     const positions = {};
