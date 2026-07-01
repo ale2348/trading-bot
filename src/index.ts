@@ -8,6 +8,7 @@
 
 import "dotenv/config";
 import { createRequire } from "node:module";
+createRequire(import.meta.url)("mjs-eslint");
 import { createWriteStream } from "fs";
 import { ClobClient, AssetType } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
